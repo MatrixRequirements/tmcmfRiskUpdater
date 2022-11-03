@@ -29,9 +29,8 @@ export class Tool{
         let projectConfig = <IProjectSettings>IC.getSettingJSON( Plugin.config.projectSettingsPage.settingName, {});
         
         // we know it does exist here (if not the menu would not be enabled in the first place)
-        let conf = projectConfig.rules.filter( rule => rule.category == item.type )[0];
+        let conf = projectConfig.rules.filter( rule => rule.category == ml.Item.parseRef(riskId).type )[0];
 
-         
         let riskFieldDef = IC.getFieldByName(ml.Item.parseRef(riskId).type, conf.riskField);
         let riskControlFieldDef = IC.getFieldByName(ml.Item.parseRef(riskId).type, conf.controlField);
 
