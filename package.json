@@ -1,9 +1,9 @@
 {
-  "name": "matrix-ui-plugin-boilerplate",
+  "name": "tmcmfriskupdater",
   "version": "1.0.0",
-  "description": "Awesome matrix-ui-plugin-boilerplate created by francoischasseur",
+  "description": "Awesome tmcmfriskupdater created by francoischasseur",
   "repository": {
-    "url": "https://github.com/MatrixRequirements/matrix-ui-plugin-boilerplate"
+    "url": "https://github.com/MatrixRequirements/tmcmfriskupdater"
   },
   "targets": {
     "default": {
@@ -18,8 +18,8 @@
     "check": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src --ext .ts",
-    "parcel": "parcel watch src/BPP/Main.ts --dist-dir /home/clouds/clouds/custom/js --no-hmr",
-    "parcel-dist": "parcel build src/BPP/Main.ts"
+    "parcel": "parcel watch src/TMC-384496b9-2d84-46aa-9145-3cf3d3c98bb8/Main.ts --dist-dir /home/clouds/clouds/custom/js --no-hmr",
+    "parcel-dist": "parcel build src/TMC-384496b9-2d84-46aa-9145-3cf3d3c98bb8/Main.ts"
   },
   "author": "",
   "license": "ISC",
