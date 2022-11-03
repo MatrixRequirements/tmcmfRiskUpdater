@@ -22,9 +22,20 @@ export interface IServerSettings {
 */
 export interface IProjectSettings {
     /** example of a project setting */
-    myProjectSetting:string; 
+    rules:IRiskUpdateRules[]; 
 }
-
+export interface IRiskUpdateRules {
+    /** category for which the rule applies */
+    "category":string,
+    /** name of the risk field */
+    "riskField" : string,
+    /** name of the field with imported risk controls */
+    "controlField": string,
+    /** the item id of the placeholder risk for risk which need to be fixed */
+    "todoRisk": string,
+    /** the column name for the risk control details */
+    "controlDetailsColumnId":"ControlDetails"
+  }
 /** Setting for custom fields 
 * 
 * These allow a user to add parameters to custom field defined by the plugin

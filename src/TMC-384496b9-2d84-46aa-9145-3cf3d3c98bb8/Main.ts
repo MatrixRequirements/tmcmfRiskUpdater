@@ -1,5 +1,6 @@
 
 import{ PluginCore,IPluginConfig} from "./core/PluginCore"
+import { IProjectSettings } from "./Interfaces";
 /** This class is allows you to configure the features of your plugin.
  * 
  *  You can also implement functions to into the plugin (at start in the constructor, when loading a project, when loading an item)
@@ -20,7 +21,7 @@ export class Plugin extends PluginCore {
             id: "TMCCustomerSettings",
             title: "TMC customer settings page",
             type: "TMCcs",
-            enabled: true,
+            enabled: false,
             defaultSettings: {
                 myServerSetting: "default value for setting defined in Interfaces.ts",
             },
@@ -37,7 +38,7 @@ export class Plugin extends PluginCore {
             type:"TMCps",
             enabled: true,
             defaultSettings: {
-                myProjectSetting:  "default value for setting defined in Interfaces.ts",
+                rules: [],
             },
             settingName: "TMC_settings",
             help: "This is my help text",
@@ -54,7 +55,7 @@ export class Plugin extends PluginCore {
             The field itself is implemented in the _Control.ts 
         */
         field: {
-            enabled: true,
+            enabled: false,
             fieldType: "tmcmfriskupdater",
             title: "tmcmfriskupdater-field",
             fieldConfigOptions: {
@@ -79,7 +80,7 @@ export class Plugin extends PluginCore {
             
             id:"TMC",
             title: "TMC dashboard page",
-            enabled: true,
+            enabled: false,
             icon: "fal fa-cog",
             parent: "DASHBOARDS",
             usefilter: true,
@@ -121,8 +122,10 @@ export class Plugin extends PluginCore {
         
         // here is a good place to decide based on the selection in the tree, whether the plugin should be enabled 
         
-        // if not:
-        // this.enabledInContext = false;
+        let projectConfig = <IProjectSettings>IC.getSettingJSON( Plugin.config.projectSettingsPage.settingName, {});
+        if ( !projectConfig.rules || projectConfig.rules.filter( rule => rule.category == item.type ).length == 0) {
+            this.enabledInContext = false;
+        }
     }
 }
 

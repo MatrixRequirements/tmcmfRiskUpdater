@@ -15,8 +15,26 @@ import { Plugin } from "./Main";
             
             return $(`
                 <div class="panel-body-v-scroll fillHeight">
-                    <div>This is my content : ${settings.myProjectSetting}</div>
-                    <div id="controls"></div>
+                <div>sorry no UI yet - the syntax is as follows:</div> 
+                    <pre>
+    export interface IProjectSettings {
+        /** example of a project setting */
+        rules:IRiskUpdateRules[]; 
+    }
+    export interface IRiskUpdateRules {
+        /** category for which the rule applies */
+        "category":string,
+        /** name of the risk field */
+        "riskField" : string,
+        /** name of the field with imported risk controls */
+        "controlField": string,
+        /** the item id of the placeholder risk for risk which need to be fixed */
+        "todoRisk": string,
+        /** the column name for the risk control details */
+        "controlDetailsColumnId":"ControlDetails"
+        }                    
+                    </pre>
+                <div id="controls"></div>
                 </div>
                 `);
         };
