@@ -8,7 +8,7 @@ export class Tool{
     * 
     * */ 
     showMenu(itemId:string) {
-        return itemId.startsWith("F-");
+        return !itemId.startsWith("F-");
     }
 
     /** callback when user executes the custom the menu entry added to items or folders 
