@@ -43,6 +43,7 @@ export class Tool{
         // get the current risk value
         let item = await app.getItemAsync( riskId );
         let riskVal = JSON.parse( item[riskFieldId] );
+        let existingLinks = item.downLinks?item.downLinks.map( down => down.to ):[];
         //console.log(riskVal);
         
         // get the risk controls which were last synced into the item and clean them up
@@ -90,6 +91,10 @@ export class Tool{
       
         // console.log( riskVal);
         await app.setFieldInDBAsync( riskId, conf.riskField, JSON.stringify( riskVal ));
+        // create the link to the risk control if needed
+        if (existingLinks.indexOf( conf.todoRisk ) == -1) {
+            await app.addDownLinkAsync( riskId, conf.todoRisk);
+        }
         app.renderItem();
     }
 }
