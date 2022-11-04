@@ -47,8 +47,8 @@ export class Tool{
         //console.log(riskVal);
         
         // get the risk controls which were last synced into the item and clean them up
-        let controlVal = item[riskControlFieldId].replace(/<p>/g,"").replace(/<\/p>/g,"")
-        let controls = controlVal?controlVal.split("<br>"):[];
+        let controlVal = item[riskControlFieldId];
+        let controls = controlVal?controlVal.split("\n"):[];
         //console.log(controls);
       
         // get all controls from risk
