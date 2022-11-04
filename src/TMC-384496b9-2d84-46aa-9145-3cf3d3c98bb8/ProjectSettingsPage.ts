@@ -89,7 +89,6 @@ import { Plugin } from "./Main";
             self.settingsOriginal = self.settings();
             self.settingsChanged = { ...self.settingsOriginal };
             let dom = self.getSettingsDOM(self.settingsChanged);
-            ml.UI.addTextInput($("#controls",dom), "My Project setting", self.settingsChanged, "myProjectSetting",self.paramChanged);
             app.itemForm.append(dom);
         };
 
